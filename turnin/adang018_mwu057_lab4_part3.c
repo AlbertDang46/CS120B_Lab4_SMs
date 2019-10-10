@@ -17,7 +17,7 @@ unsigned char xButton;
 unsigned char yButton;
 unsigned char poundButton;
 unsigned char lockButton;
-unsigned char isLocked;
+unsigned char isUnlocked;
 
 void Tick();
 
@@ -26,7 +26,7 @@ int main(void) {
     DDRB = 0xFF; PORTB = 0x00;
     
     state = Init;
-    isLocked = 0;
+    isUnlocked = 0;
 
     while (1) {
         xButton = (PINA & 0x01);
@@ -83,23 +83,23 @@ void Tick() {
     // State actions
     switch(state) {
         case Init:
-	    isLocked = 0;
+	    isUnlocked = 0;
 	    break;
         case Wait:
-            isLocked = 0;
+            isUnlocked = 0;
             break;
         case Press_Pound:
-            isLocked = 0;
+            isUnlocked = 0;
  	    break;
         case Pound:
-            isLocked = 0;
+            isUnlocked = 0;
             break;
         case Unlock:
-	    isLocked = 1;
+	    isUnlocked = 1;
 	    break;
         default:
-            isLocked = 0;
+            isUnlocked = 0;
 	    break;
     }
-    PORTB = isLocked;
+    PORTB = isUnlocked;
 }

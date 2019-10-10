@@ -40,7 +40,7 @@ echo Running all tests..."\n\n
 
 # Add tests below
 set state = Init
-set isLocked = 0
+set isUnlocked = 0
 test "PINA: 0x04, PINA: 0x00, PINA: 0x02 => PORTB: 1"
 setPINA 0x04
 continue 2
@@ -53,7 +53,7 @@ print state
 checkResult
 
 set state = Init
-set isLocked = 0
+set isUnlocked = 0
 test "PINA: 0x04, PINA: 0x00, PINA: 0x01 => PORTB: 0"
 setPINA 0x04
 continue 2
@@ -66,7 +66,7 @@ print state
 checkResult
 
 set state = Init
-set isLocked = 0
+set isUnlocked = 0
 test "PINA: 0x04, PINA: 0x00, PINA: 0x02, PINA: 0x80 => PORTB: 0"
 setPINA 0x04
 continue 2
