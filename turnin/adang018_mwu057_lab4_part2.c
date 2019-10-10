@@ -13,8 +13,8 @@
 #endif
 
 enum States {Init, Wait, Inc, Press_Inc, Dec, Press_Dec, Zero} state;
-unsigned incButton;
-unsigned decButton;
+unsigned char incButton;
+unsigned char decButton;
 unsigned char counter;
 
 void Tick();
